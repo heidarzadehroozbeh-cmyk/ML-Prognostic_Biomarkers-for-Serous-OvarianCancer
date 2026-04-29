@@ -61,19 +61,25 @@ All packages can be installed automatically using `scripts/00_setup.R`.
 ```
 EOC_WNT_TGFb_EMT_Transcriptomics/
 │
-├── data_raw/                 # Raw GEO files (downloaded GSEMatrix objects)
-├── data_processed/           # Processed gene-level expression matrices
-├── meta/                     # Sample sheets and metadata CSVs
+├── data_raw/                    # Raw GEO files (downloaded GSEMatrix objects)
+├── data_processed/              # Processed gene-level expression matrices
+├── meta/                        # Sample sheets and metadata CSVs
 ├── results/
-│   ├── tables/               # DEG results per dataset
-│   └── plots/                # Volcano plots per dataset
+│   ├── tables/                  # DEG results per dataset
+│   └── plots/                   # Volcano plots per dataset
 ├── scripts/
-│   ├── 00_setup.R            # Install required packages
-│   ├── 01_params.R           # Project parameters, DEG thresholds, paths
-│   ├── 02_download_geo.R     # Download GEO GSEMatrix objects
-│   ├── 03_make_sample_sheets.R # Create/validate sample sheets
-│   ├── 04_deg_mrna_limma.R   # Differential expression analysis (limma)
-│   └── 05_Volcano Plots.R    # Generate volcano plots for DEGs
+│   ├── 00_setup.R               # Install required packages
+│   ├── 01_params.R              # Project parameters, DEG thresholds, paths
+│   ├── 02_download_geo.R        # Download GEO GSEMatrix objects
+│   ├── 03_make_sample_sheets.R  # Create/validate sample sheets
+│   ├── 04_deg_mrna_limma.R      # Differential expression analysis (limma)
+│   ├── 05_meta_deg_consensus.R  # Create meta_deg_consensus
+│   ├── 06_ml_diagnostic_LODO.R  # Diagnostic ML (EOC vs Normal) with cross-study LODO validation
+│   ├── 07_DEGs_expression_Panel.R  # Figure Panels
+│   ├── 08_Predictions_confusion.R  # Create meta_deg_consensus
+│   ├── 09_figures_STRICT_ROC_and_expression_panels.R # Publication-grade ROC + expression panels
+
+
 └── README.md                 # Project description (this file)
 ```
 
