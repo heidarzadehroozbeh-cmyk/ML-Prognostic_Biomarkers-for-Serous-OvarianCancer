@@ -1,49 +1,140 @@
-# History files
+##########################################################
+#  Bioinformatics Project GitIgnore (R / renv / Snakemake / Docker)
+#  Author: Roozbeh Heidarzadeh‑Pilehrood
+#  Version: 1.0
+##########################################################
+
+# ---------------------------------------------------------
+#  R / RStudio files
+# ---------------------------------------------------------
 .Rhistory
-.Rapp.history
-
-# Session Data files
 .RData
-.RDataTmp
-
-# User-specific files
 .Ruserdata
-
-# Example code in package build process
-*-Ex.R
-
-# Output files from R CMD build
-/*.tar.gz
-
-# Output files from R CMD check
-/*.Rcheck/
-
-# RStudio files
+.Rapp.history
 .Rproj.user/
+*.Rproj
 
-# produced vignettes
-vignettes/*.html
-vignettes/*.pdf
-
-# OAuth2 token, see https://github.com/hadley/httr/releases/tag/v0.3
-.httr-oauth
-
-# knitr and R markdown default cache directories
-*_cache/
-/cache/
-
-# Temporary files created by R markdown
-*.utf8.md
-*.knit.md
-
-# R Environment Variables
+# renv cache & lock files (heavy local env data)
+renv/library/
+renv/staging/
+renv/cache/
+renv/activate.R
+.lockfile
+*.Rprofile
 .Renviron
 
-# pkgdown site
-docs/
+# ---------------------------------------------------------
+#  Intermediate analysis data
+# ---------------------------------------------------------
+data_raw/
+data_processed/
+data_tmp/
+data_cache/
+results/
+figures/
+plots/
+tmp/
+cache/
+intermediate/
+output/
+local_output/
 
-# translation temp files
-po/*~
+# ---------------------------------------------------------
+#  GEO / Expression data downloads
+# ---------------------------------------------------------
+*.CEL
+*.CEL.gz
+*.soft
+*.SOFT.GZ
+*.txt
+*.csv
+*.tsv
+*.xlsx
+*.json
+*.rds
+*.rda
 
-# RStudio Connect folder
-rsconnect/
+# ---------------------------------------------------------
+#  Machine learning model files
+# ---------------------------------------------------------
+*.model
+*.pkl
+*.joblib
+*.h5
+*.pt
+*.ckpt
+
+# ---------------------------------------------------------
+#  Log files and debug outputs
+# ---------------------------------------------------------
+*.log
+*.out
+*.err
+*.tmp
+*.bak
+
+# ---------------------------------------------------------
+#  Snakemake / Nextflow temporary files
+# ---------------------------------------------------------
+.snakemake/
+.nextflow/
+work/
+logs/
+reports/
+trace/
+pipeline_cache/
+.nf/
+*.nf.tmp
+
+# ---------------------------------------------------------
+#  Docker & container data
+# ---------------------------------------------------------
+docker_tmp/
+docker_build/
+Dockerfile.*
+*.tar
+*.img
+*.sif
+
+# ---------------------------------------------------------
+#  Python integration (if present)
+# ---------------------------------------------------------
+__pycache__/
+*.pyc
+*.pyo
+*.ipynb_checkpoints/
+
+# ---------------------------------------------------------
+#  Compressed archives
+# ---------------------------------------------------------
+*.zip
+*.rar
+*.tar
+*.tar.gz
+*.gz
+*.bz2
+*.7z
+
+# ---------------------------------------------------------
+#  System & Editor-specific files
+# ---------------------------------------------------------
+.DS_Store
+Thumbs.db
+*.swp
+*.swo
+
+# ---------------------------------------------------------
+#  Versioning artifacts
+# ---------------------------------------------------------
+*.old
+*.backup
+*.bak
+*.orig
+
+# ---------------------------------------------------------
+#  Sensitive manuscript files
+# ---------------------------------------------------------
+manuscript/
+figures_high_res/
+journal_submission/
+analysis_final/
