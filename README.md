@@ -82,16 +82,16 @@ EOC_WNT_TGFb_EMT_Transcriptomics/
 │   ├── 11_multimodel_gene_ranking_STRICT_LODO_top500.R     # Multi-model benchmarking + gene ranking on TRAIN significant genes within each LODO fold
 │   ├── 12_select_candidate_biomarkers_STRICT_LODO.R        # Candidate biomarker selection using CLASSIC ML models (ElasticNet / SVM / RF / XGBoost / GBM)
 │   ├── 13_BIGPANEL_STRICT_candidates_parts.R               # BigPanel Outputs
-│   ├── 14_FINAL22_multigene_expression_Q1.R                # 22 FINAL genes (Up/Down) with Box Violin Points
-│   ├── 15_cripts/16_ALGO_training_curves_COREset22.R
-
-           # BigPanel Outputs
-│   ├── 16_BIGPANEL_STRICT_candidates_parts.R               # BigPanel Outputs
-│   ├── 16_BIGPANEL_STRICT_candidates_parts.R               # BigPanel Outputs
-│   ├── 16_BIGPANEL_STRICT_candidates_parts.R               # BigPanel Outputs
-
-
-# Inputs (from script 11):
+│   ├── 14_FINAL22_multigene_expression_Q1.R                # FINAL 22 genes (Up/Down) with Box Violin Points
+│   ├── 15_Cross-cohort_multigene_expression_Q1.R
+│   ├── 16_training_curves_COREset22.R                      # Up-regulated FINAL genes, Down-regulated FINAL genes
+│   ├── 17_FINAL22_multigene_expression_Q1_metaonly_5x5.R   # META pooled only (EOC vs Normal) for FINAL 22 genes
+│   ├── 18_CORE2_SPON1_ALDH1A2_Panels.R                     # CORE 2 genes: SPON1, ALDH1A2
+│   ├── 19_CORE2_MUC1_AQP9_panels.R                         # FINAL CLEAN VERSION – enlarged fonts, fixed stars, stable ggplot layers
+│   ├── 20_CORE2_MUC1_AQP9_panels.R                         # CORE 2 genes: MUC1, AQP9
+│   ├── 21_IMMUNE_systems_scoring_Q1.R                      # Compute immune module scores per sample (ssGSEA-lite via within-dataset z-score mean)
+│   ├── 22_MLprob_vs_ImmuneModules_Q1.R                     # Bridge ML outputs -> immune systems biology 
+│   └──  23_volcano_colored_limma_Q1.R                       # Colored volcano plots for limma tables (CRAN-only)
 └── README.md                 # Project description (this file)
 ```
 
@@ -114,7 +114,7 @@ Consensus DEGs are defined as **directionally concordant across all 3 mRNA datas
 
 Dr Roozbeh Heidarzadehpilehrood
 Affiliation: Independent researcher, Human Genetics, Genomics & Transcriptomics
-Contact: heidarzadeh.roozbeh@gmail.com
+Contact: roozbeh.heidarzadeh@gmail.com, heidarzadeh.roozbeh@gmail.com
 
 ---
 
