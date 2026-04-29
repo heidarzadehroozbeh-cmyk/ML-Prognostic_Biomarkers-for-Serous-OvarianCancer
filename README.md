@@ -61,87 +61,45 @@ All packages can be installed automatically using `scripts/00_setup.R`.
 ```
 EOC_WNT_TGFb_EMT_Transcriptomics/
 │
-├── data_raw/                    # Raw GEO files (downloaded GSEMatrix objects)
-├── data_processed/              # Processed gene-level expression matrices
-├── meta/                        # Sample sheets and metadata CSVs
+├── data_raw/                                               # Raw GEO files (downloaded GSEMatrix objects)
+├── data_processed/                                         # Processed gene-level expression matrices
+├── meta/                                                   # Sample sheets and metadata CSVs
 ├── results/
-│   ├── tables/                  # DEG results per dataset
-│   └── plots/                   # Volcano plots per dataset
+│   ├── tables/                                             # DEG results per dataset
+│   └── plots/                                              # Volcano plots per dataset
 ├── scripts/
-│   ├── 00_setup.R               # Install required packages
-│   ├── 01_params.R              # Project parameters, DEG thresholds, paths
-│   ├── 02_download_geo.R        # Download GEO GSEMatrix objects
-│   ├── 03_make_sample_sheets.R  # Create/validate sample sheets
-│   ├── 04_deg_mrna_limma.R      # Differential expression analysis (limma)
-│   ├── 05_meta_deg_consensus.R  # Create meta_deg_consensus
-│   ├── 06_ml_diagnostic_LODO.R  # Diagnostic ML (EOC vs Normal) with cross-study LODO validation
-│   ├── 07_DEGs_expression_Panel.R  # Figure Panels
-│   ├── 08_Predictions_confusion.R  # Create meta_deg_consensus
-│   ├── 09_figures_STRICT_ROC_and_expression_panels.R # Publication-grade ROC + expression panels
+│   ├── 00_setup.R                                          # Install required packages
+│   ├── 01_params.R                                         # Project parameters, DEG thresholds, paths
+│   ├── 02_download_geo.R                                   # Download GEO GSEMatrix objects
+│   ├── 03_make_sample_sheets.R                             # Create/validate sample sheets
+│   ├── 04_deg_mrna_limma.R                                 # Differential expression analysis (limma)
+│   ├── 05_meta_deg_consensus.R                             # Create meta_deg_consensus
+│   ├── 06_ml_diagnostic_LODO.R                             # Diagnostic ML (EOC vs Normal) with cross-study LODO validation
+│   ├── 07_DEGs_expression_Panel.R                          # Figure Panels
+│   ├── 08_Predictions_confusion.R                          # Create meta_deg_consensus
+│   ├── 09_figures_STRICT_ROC_and_expression_panels.R       # Publication-grade ROC + expression panels
+│   ├── 10_benchmark_models_STRICT_LODO.R                   # Models: ElasticNet (glmnet), RandomForest (ranger), XGBoost (xgboost)
+│   ├── 11_multimodel_gene_ranking_STRICT_LODO_top500.R     # Multi-model benchmarking + gene ranking on TRAIN significant genes within each LODO fold
+│   ├── 12_select_candidate_biomarkers_STRICT_LODO.R        # Candidate biomarker selection using CLASSIC ML models (ElasticNet / SVM / RF / XGBoost / GBM)
+│   ├── 13_BIGPANEL_STRICT_candidates_parts.R               # BigPanel Outputs
+│   ├── 14_FINAL22_multigene_expression_Q1.R                # 22 FINAL genes (Up/Down) with Box Violin Points
+│   ├── 15_cripts/16_ALGO_training_curves_COREset22.R
+
+           # BigPanel Outputs
+│   ├── 16_BIGPANEL_STRICT_candidates_parts.R               # BigPanel Outputs
+│   ├── 16_BIGPANEL_STRICT_candidates_parts.R               # BigPanel Outputs
+│   ├── 16_BIGPANEL_STRICT_candidates_parts.R               # BigPanel Outputs
 
 
+# Inputs (from script 11):
 └── README.md                 # Project description (this file)
 ```
-
----
-
-## Usage
-
-1. **Setup environment**
-
-   ```R
-   source("scripts/00_setup.R")
-   ```
-
-2. **Set project parameters** (optional modifications)
-
-   ```R
-   source("scripts/01_params.R")
-   ```
-
-3. **Download GEO datasets**
-
-   ```R
-   source("scripts/02_download_geo.R")
-   ```
-
-4. **Create and validate sample sheets**
-
-   ```R
-   source("scripts/03_make_sample_sheets.R")
-   ```
-
-5. **Run differential expression analysis (mRNA)**
-
-   ```R
-   source("scripts/04_deg_mrna_limma.R")
-   ```
-
-6. **Generate volcano plots**
-
-   ```R
-   source("scripts/05_Volcano Plots.R")
-   ```
-
----
-
-## Scripts Description
-
-| Script                    | Description                                                                                                       |
-| ------------------------- | ----------------------------------------------------------------------------------------------------------------- |
-| `00_setup.R`              | Installs required CRAN and Bioconductor packages.                                                                 |
-| `01_params.R`             | Defines datasets, expected sample counts, DEG thresholds, and project folder paths.                               |
-| `02_download_geo.R`       | Downloads GEO GSEMatrix objects and saves metadata for each dataset.                                              |
-| `03_make_sample_sheets.R` | Creates or validates sample sheets for each dataset; ensures `EOC` and `Normal` counts match expectations.        |
-| `04_deg_mrna_limma.R`     | Performs differential expression analysis using **limma**; collapses probes to gene symbols and saves DEG tables. |
-| `05_Volcano Plots.R`      | Generates volcano plots for each dataset, highlighting DEGs above thresholds and labeling top genes.              |
 
 ---
 
 ## Datasets
 
 * **mRNA datasets (GPL570)**: `GSE14407`, `GSE38666`, `GSE52037`
-* **miRNA dataset (GPL20712)**: `GSE216150`
 
 DEG thresholds used:
 
