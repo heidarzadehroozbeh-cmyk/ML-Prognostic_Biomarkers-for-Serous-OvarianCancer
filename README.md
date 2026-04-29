@@ -1,91 +1,230 @@
-# ML-Prognostic-Biomarkers-SOC
-### Integrative Machine Learning Pipeline for Transcriptomic Landscape Analysis in Serous Ovarian Cancer
+# ML Prognostic Biomarkers for Serous Ovarian Cancer
 
-This repository contains the computational pipeline used to identify and validate candidate prognostic biomarkers in the Tumor Microenvironment (TME) of Serous Ovarian Cancer (SOC). The workflow focuses on multi-cohort integration and robust Machine Learning validation.
-
----
-
-## 📋 Table of Contents
-- [Overview](#overview)
-- [Methodological Workflow](#methodological-workflow)
-- [Requirements](#requirements)
-- [Repository Structure](#repository-structure)
-- [Datasets](#datasets)
-- [Citation](#citation)
-- [License](#license)
+Machine learning–driven transcriptomic analysis identifying candidate prognostic biomarkers involved in tumor microenvironment (TME) dynamics and progression of **Serous Ovarian Cancer (SOC)**.
 
 ---
 
-## 🔍 Overview
-This project integrates multiple SOC transcriptomic datasets to identify a robust candidate gene panel. The core of the study is a **Strict Leave-One-Dataset-Out (LODO)** diagnostic framework, ensuring that the identified biomarkers (including **SPON1** and **ALDH1A2**) maintain high predictive power across independent cohorts and diverse clinical settings.
+## Badges
+
+![R](https://img.shields.io/badge/R-%3E%3D4.2-blue)  
+![License](https://img.shields.io/badge/license-CC%20BY--NC%204.0-green)  
+![Platform](https://img.shields.io/badge/platform-GEO%20GPL570-orange)  
+![Status](https://img.shields.io/badge/manuscript-under%20review-yellow)
 
 ---
 
-## ⚙️ Methodological Workflow
-1.  **Data Harmonization:** Mining and preprocessing GEO datasets (GPL570).
-2.  **Meta-Analysis:** Cohort-wise differential expression and cross-cohort consensus integration.
-3.  **Machine Learning:** Diagnostic modeling using ElasticNet, Random Forest, and XGBoost.
-4.  **Robust Validation:** Multi-model feature ranking and strict LODO cross-study validation.
-5.  **Systems Biology:** Linking ML-predicted probabilities to immune modules and TME assessment.
+## Overview
+
+This repository contains the computational pipeline used for **integrative transcriptomic analysis and machine learning–based biomarker discovery** in Serous Ovarian Cancer.
+
+The framework integrates multiple independent GEO cohorts and applies a **strict Leave-One-Dataset-Out (LODO) validation strategy** to ensure robust biomarker discovery and cross-cohort generalizability.
+
+The analysis ultimately highlights candidate genes including **SPON1** and **ALDH1A2**, linked to tumor microenvironment remodeling and SOC progression.
 
 ---
 
-## 💻 Requirements
-- **R Version:** ≥ 4.2
-- **Key Packages:** `limma`, `metafor`, `glmnet`, `randomForest`, `xgboost`, `tidyverse`, `survival`, `pROC`.
+## Study Design
 
-You can initialize the environment by running:
-```R
+The pipeline integrates transcriptomic data across multiple cohorts using the following strategy:
+
+1. GEO dataset acquisition and preprocessing  
+2. Differential expression analysis (limma)  
+3. Cross-cohort consensus DEG identification  
+4. Machine learning model development  
+5. Strict cross-study validation (LODO)  
+6. Multi-model feature importance ranking  
+7. Candidate biomarker selection  
+8. Tumor microenvironment (TME) immune module scoring  
+9. Linking ML prediction probability with immune system signals
+
+---
+
+## Workflow Diagram
+
+Conceptual pipeline:
+
+```
+GEO datasets
+     │
+     ▼
+Data preprocessing
+     │
+     ▼
+Differential expression (limma)
+     │
+     ▼
+Cross‑cohort DEG consensus
+     │
+     ▼
+Machine Learning Models
+(ElasticNet / RF / XGBoost)
+     │
+     ▼
+Strict LODO validation
+     │
+     ▼
+Feature ranking
+     │
+     ▼
+Candidate biomarker discovery
+     │
+     ▼
+TME immune module analysis
+```
+
+---
+
+## Requirements
+
+Recommended environment:
+
+- **R ≥ 4.2**
+
+Key packages:
+
+```
+GEOquery
+limma
+data.table
+metafor
+glmnet
+randomForest
+xgboost
+gbm
+pROC
+tidyverse
+survival
+ggplot2
+```
+
+Install dependencies:
+
+```r
 source("scripts/00_setup.R")
 ```
 
 ---
 
-## 📁 Repository Structure (Core Pipeline)
-*Note: High-resolution visualization scripts for the final manuscript figures are currently restricted and will be fully released upon publication.*
+## Quick Start
 
-```text
-scripts/
-├── 00_setup.R                    # Environment setup & dependencies
-├── 01_params.R                   # Global parameters & DEG thresholds
-├── 02_download_geo.R             # Automated data acquisition from GEO
-├── 03_make_sample_sheets.R       # Metadata validation
-├── 04_deg_mrna_limma.R           # Differential Expression Analysis
-├── 05_meta_deg_consensus.R       # Consensus Meta-integration
-├── 06_ml_diagnostic_LODO.R       # Primary ML modeling (LODO framework)
-├── 10_benchmark_models.R         # Model comparison (RF, XGBoost, ENET)
-├── 11_gene_ranking_LODO.R        # Multi-model feature importance ranking
-├── 12_select_biomarkers.R        # Identification of candidate biomarkers
-├── 21_immune_scoring.R           # TME immune module scoring (ssGSEA-lite)
-├── 22_ML_vs_Immune.R             # Correlation of ML outputs & Biology
-└── 23_volcano_standard.R         # Standard DEG visualization
+Example minimal pipeline execution:
+
+```r
+# 1. Install dependencies
+source("scripts/00_setup.R")
+
+# 2. Download GEO datasets
+source("scripts/02_download_geo.R")
+
+# 3. Perform DEG analysis
+source("scripts/04_deg_mrna_limma.R")
+
+# 4. Generate consensus genes
+source("scripts/05_meta_deg_consensus.R")
+
+# 5. Run ML diagnostic modeling
+source("scripts/06_ml_diagnostic_LODO.R")
 ```
 
 ---
 
-## 📊 Datasets
-The analysis utilizes mRNA expression profiles from the **GPL570** platform:
-- **GSE14407**, **GSE38666**, **GSE52037**
-- **Inclusion Criteria:** Adjusted P-value (FDR) < 0.05 & |log₂FC| > 2.
+## Repository Structure
+
+```
+EOC_WNT_TGFb_EMT_Transcriptomics
+│
+├── data_raw/               # GEO raw files
+├── data_processed/         # Processed gene expression matrices
+├── meta/                   # Metadata and sample sheets
+│
+├── results/
+│   ├── tables/             # DEG outputs
+│   └── plots/              # Standard visualizations
+│
+├── scripts/
+│   ├── 00_setup.R
+│   ├── 01_params.R
+│   ├── 02_download_geo.R
+│   ├── 03_make_sample_sheets.R
+│   ├── 04_deg_mrna_limma.R
+│   ├── 05_meta_deg_consensus.R
+│   ├── 06_ml_diagnostic_LODO.R
+│   ├── 10_benchmark_models.R
+│   ├── 11_gene_ranking_LODO.R
+│   ├── 12_select_candidate_biomarkers.R
+│   ├── 21_immune_scoring.R
+│   └── 22_ML_vs_Immune.R
+│
+└── README.md
+```
+
+Note: **High‑resolution figure generation scripts for the manuscript are intentionally excluded and will be released after publication.**
 
 ---
 
-## ✍️ Author
-**Dr. Roozbeh Heidarzadeh-Pilehrood**  
-*Independent Researcher | Human Genetics & Transcriptomics*  
-📧 [roozbeh.heidarzadeh@gmail.com](mailto:roozbeh.heidarzadeh@gmail.com)
+## Datasets
+
+Platform: **Affymetrix GPL570**
+
+Cohorts used:
+
+- GSE14407  
+- GSE38666  
+- GSE52037  
+
+DEG filtering criteria:
+
+- Adjusted p-value (FDR) < 0.05  
+- |log2FC| > 2  
+
+Consensus genes are defined as **directionally concordant across all cohorts**.
 
 ---
 
-## 📜 Citation
+## Reproducibility Statement
+
+All analyses were performed using R-based scripts designed for reproducibility across independent datasets. The pipeline emphasizes **cross-cohort validation and strict model generalization** using Leave-One-Dataset-Out training strategies.
+
+---
+
+## Manuscript Status
+
+This repository accompanies a research manuscript currently **under peer review**.  
+Some scripts related to **publication-grade figure generation** are temporarily withheld and will be released after formal publication.
+
+---
+
+## Author
+
+Dr Roozbeh Heidarzadeh‑Pilehrood  
+Independent Researcher — Human Genetics, Genomics & Transcriptomics
+
+Email  
+roozbeh.heidarzadeh@gmail.com  
+heidarzadeh.roozbeh@gmail.com
+
+---
+
+## Citation
+
 If you use this pipeline, please cite:
 
-1.  **Heidarzadehpilehrood R**, et al. (2026). *Integrative transcriptomic analysis of WNT/TGFβ-driven EMT pathways...* **Advances in Cancer Biology - Metastasis**, 16:100178. [DOI: 10.1016/j.adcanc.2026.100178]
-2.  **Heidarzadehpilehrood R**, (2026). GitHub: *EOC_WNT_TGFb_EMT_Transcriptomics_2026*. [Zenodo](https://zenodo.org/records/18711967)
+Heidarzadehpilehrood R, Ling K‑H, Abdul Hamid H (2026)  
+Integrative transcriptomic analysis of WNT/TGFβ‑driven EMT pathways and drug‑gene interaction networks in epithelial ovarian cancer.  
+Advances in Cancer Biology - Metastasis 16:100178  
+https://doi.org/10.1016/j.adcanc.2026.100178
+
+Repository DOI  
+https://zenodo.org/records/18711967
 
 ---
 
-## 📄 License
-This project is licensed under **CC BY-NC 4.0**. (Non-commercial use with attribution).
+## License
 
----
+This project is licensed under:
+
+**Creative Commons CC BY‑NC 4.0**
+
+You may share and adapt the material for **non‑commercial use** with proper attribution.
+
+ی کسی صفحه گیت‌هاب را باز می‌کند، در ۵ ثانیه بفهمد کار تو چقدر قوی است.
