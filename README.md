@@ -226,5 +226,3 @@ This project is licensed under:
 **Creative Commons CC BY‑NC 4.0**
 
 You may share and adapt the material for **non‑commercial use** with proper attribution.
-
-ی کسی صفحه گیت‌هاب را باز می‌کند، در ۵ ثانیه بفهمد کار تو چقدر قوی است.
