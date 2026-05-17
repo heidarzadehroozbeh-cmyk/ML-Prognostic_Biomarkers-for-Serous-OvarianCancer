@@ -1,6 +1,6 @@
 # ML Prognostic Biomarkers for High-Grade Serous Carcinoma (HGSC)
 
-Machine learning–driven transcriptomic analysis identifying candidate prognostic biomarkers involved in tumor microenvironment (TME) dynamics and progression of **High-Grade Carcionoma (HGSC)**.
+Machine learning–driven transcriptomic analysis identifying candidate prognostic biomarkers involved in tumor microenvironment (TME) dynamics and progression of **High-Grade Serous Carcionoma (HGSC)**.
 
 ---
 
