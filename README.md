@@ -226,3 +226,124 @@ This project is licensed under:
 **Creative Commons CC BY‑NC 4.0**
 
 You may share and adapt the material for **non‑commercial use** with proper attribution.
+
+
+
+
+
+
+```markdown
+# ML Prognostic Biomarkers for Serous Ovarian Cancer
+
+**Machine learning–driven transcriptomic analysis for identifying robust prognostic biomarkers associated with tumor microenvironment (TME) dynamics and progression of Serous Ovarian Cancer (SOC).**
+
+---
+
+## 📚 Overview
+
+This repository contains a reproducible computational pipeline for **integrative transcriptomic analysis and machine learning–based biomarker discovery** in serous ovarian cancer. The framework utilizes multiple GEO datasets and implements a strict **Leave-One-Dataset-Out (LODO)** validation strategy.
+
+---
+
+## ⚙ Repository Structure
+
+```plaintext
+ML-Prognostic_Biomarkers-for-Serous-OvarianCancer
+│
+├── scripts/                            # Analysis scripts
+│   ├── 00_setup.R                      # Install dependencies
+│   ├── 01_params.R                     # Global parameters
+│   ├── 02_download_geo.R               # Download GEO datasets
+│   ├── 03_make_sample_sheets.R         # Construct sample metadata
+│   ├── 04_deg_mrna_limma.R             # DEG analysis using limma
+│   ├── 05_meta_deg_consensus.R         # Cross-cohort consensus DEGs
+│   ├── 06_ml_diagnostic_LODO.R         # ML training with LODO
+│   ├── 07_benchmark_models_STRICT_LODO.R# Benchmarking ML models
+│   ├── 08_multimodel_gene_ranking_STRICT_LODO_top500.R # Feature ranking
+│   └── 09_select_candidate_biomarkers_STRICT_LODO.R  # Candidate selection
+│
+├── README.md                           # Project documentation
+└── LICENSE                             # Licensing information
+```
+
+---
+
+## 📊 Study Design
+
+1. **Acquire GEO datasets**  
+2. **Normalize and preprocess** datasets  
+3. **Perform differential expression** analysis using limma  
+4. **Generate cross-cohort consensus DEGs**  
+5. **Train machine learning models** with strict LODO validation  
+6. **Benchmark multiple algorithms**  
+7. **Rank genes** based on feature importance  
+8. **Select robust biomarkers**  
+9. **Evaluate associations** with immune signals  
+
+---
+
+## 🚀 Quick Start
+
+### Step-by-step Instructions
+
+```r
+# Install dependencies
+source("scripts/00_setup.R")
+
+# Download and preprocess GEO data
+source("scripts/02_download_geo.R")
+
+# Construct sample metadata
+source("scripts/03_make_sample_sheets.R")
+
+# Execute DEG analysis
+source("scripts/04_deg_mrna_limma.R")
+
+# Generate consensus DEGs
+source("scripts/05_meta_deg_consensus.R")
+
+# Train ML models with LODO validation
+source("scripts/06_ml_diagnostic_LODO.R")
+
+# Benchmark models
+source("scripts/07_benchmark_models_STRICT_LODO.R")
+
+# Rank top genes
+source("scripts/08_multimodel_gene_ranking_STRICT_LODO_top500.R")
+
+# Select candidate biomarkers
+source("scripts/09_select_candidate_biomarkers_STRICT_LODO.R")
+```
+
+---
+
+## 📈 Example Results
+
+![Example Workflow](path_to_your_workflow_image)  
+*Sample visualization of the workflow and results.*
+
+---
+
+## 🔗 Additional Information
+
+- Datasets analyzed include: **GSE14407**, **GSE38666**, **GSE52037**.
+- Repository is currently **under peer review** and will be updated post-publication.
+- For any inquiries or collaboration opportunities, contact:  
+  Dr. Roozbeh Heidarzadehpilehrood  
+  [Email](mailto:roozbeh.heidarzadeh@gmail.com)
+
+---
+
+## 📝 License
+
+Creative Commons **CC BY-NC 4.0** — non-commercial use allowed with attribution.
+
+---
+
+## 📄 Citation
+
+If you use this repository, please cite:  
+Heidarzadehpilehrood R. et al. (2026). Machine learning–based discovery of prognostic biomarkers in serous ovarian cancer.
+
+Repository DOI: *To be assigned via Zenodo*
+```
