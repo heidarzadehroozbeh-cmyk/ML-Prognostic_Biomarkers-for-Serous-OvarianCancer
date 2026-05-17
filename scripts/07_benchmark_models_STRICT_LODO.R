@@ -1,4 +1,4 @@
-# scripts/10_benchmark_models_STRICT_LODO.R
+# scripts/7_benchmark_models_STRICT_LODO.R
 # Benchmark models on STRICT LODO panels (train-only scaling; no leakage)
 # Models: ElasticNet (glmnet), RandomForest (ranger), XGBoost (xgboost)
 

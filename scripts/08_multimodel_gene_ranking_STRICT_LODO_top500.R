@@ -1,4 +1,4 @@
-# scripts/11_multimodel_gene_ranking_STRICT_LODO_top500.R
+# scripts/08_multimodel_gene_ranking_STRICT_LODO_top500.R
 # Multi-model benchmarking + gene ranking on TRAIN-only Top-500 significant genes within each LODO fold
 # Models: ElasticNet (glmnet), Linear SVM (e1071), RandomForest (ranger), XGBoost (xgboost), GBM (gbm)
 

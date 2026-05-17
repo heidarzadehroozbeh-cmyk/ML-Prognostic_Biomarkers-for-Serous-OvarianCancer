@@ -1,4 +1,4 @@
-# scripts/12_select_candidate_biomarkers_STRICT_LODO.R
+# scripts/09_select_candidate_biomarkers_STRICT_LODO.R
 # Candidate biomarker selection using CLASSIC ML models (ElasticNet / SVM / RF / XGBoost / GBM)
 # Inputs (from script 11):
 #  - results/models/STRICT_LODO_multimodel_importance_long.tsv
