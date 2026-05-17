@@ -199,7 +199,7 @@ Some scripts related to **publication-grade figure generation** are temporarily 
 
 ## Author
 
-Dr Roozbeh Heidarzadeh‑Pilehrood  
+Dr Roozbeh Heidarzadehpilehrood  
 Independent Researcher — Human Genetics, Genomics & Transcriptomics
 
 Email  
@@ -212,13 +212,10 @@ heidarzadeh.roozbeh@gmail.com
 
 If you use this pipeline, please cite:
 
-Heidarzadehpilehrood R, Ling K‑H, Abdul Hamid H (2026)  
-Integrative transcriptomic analysis of WNT/TGFβ‑driven EMT pathways and drug‑gene interaction networks in epithelial ovarian cancer.  
-Advances in Cancer Biology - Metastasis 16:100178  
-https://doi.org/10.1016/j.adcanc.2026.100178
-
+Heidarzadehpilehrood R, et.al (2026)
+.......................
 Repository DOI  
-https://zenodo.org/records/18711967
+.......................
 
 ---
 
