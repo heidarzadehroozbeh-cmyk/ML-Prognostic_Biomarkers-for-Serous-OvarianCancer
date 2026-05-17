@@ -24,7 +24,7 @@ The analysis ultimately highlights candidate genes including **SPON1** and **ALD
 ---
 
 ## Abstract
-Serous ovarian cancer (SOC) remains one of the most lethal gynecological malignancies, with limited robust prognostic biomarkers available for clinical use. In this project, we developed a fully reproducible machine learning framework for cross‑cohort transcriptomic analysis of SOC. Publicly available GEO datasets were curated, pre‑processed, and harmonized using standardized normalization and batch correction procedures. Feature selection pipelines combining univariate filtering, penalized regression, and stability selection were applied to identify robust prognostic gene signatures. Multiple machine learning models, including elastic net, random forest, and gradient boosting, were trained and evaluated under rigorous cross‑validation and cross‑cohort validation schemes. Survival modeling and risk stratification were performed to assess the prognostic value of the derived signatures, while pathway‑level analyses and immune deconvolution were used to contextualize the biological relevance of candidate biomarkers. The framework emphasizes methodological transparency, reproducibility, and multi‑cohort robustness, providing a template for biomarker discovery in other cancers. Manuscript submission is in progress; code and workflows will be fully synchronized with the final published version.
+High-Grade Serous Carcionoma (HGSC) remains one of the most lethal gynecological malignancies, with limited robust prognostic biomarkers available for clinical use. In this project, we developed a fully reproducible machine learning framework for cross‑cohort transcriptomic analysis of HGSC. Publicly available GEO datasets were curated, pre‑processed, and harmonized using standardized normalization and batch correction procedures. Feature selection pipelines combining univariate filtering, penalized regression, and stability selection were applied to identify robust prognostic gene signatures. Multiple machine learning models, including elastic net, random forest, and gradient boosting, were trained and evaluated under rigorous cross‑validation and cross‑cohort validation schemes. Survival modeling and risk stratification were performed to assess the prognostic value of the derived signatures, while pathway‑level analyses and immune deconvolution were used to contextualize the biological relevance of candidate biomarkers. The framework emphasizes methodological transparency, reproducibility, and multi‑cohort robustness, providing a template for biomarker discovery in other cancers. Manuscript submission is in progress; code and workflows will be fully synchronized with the final published version.
 
 ## Study Design
 
@@ -140,10 +140,6 @@ EOC_WNT_TGFb_EMT_Transcriptomics
 ├── data_processed/         # Processed gene expression matrices
 ├── meta/                   # Metadata and sample sheets
 │
-├── results/
-│   ├── tables/             # DEG outputs
-│   └── plots/              # Standard visualizations
-│
 ├── scripts/
 │   ├── 00_setup.R
 │   ├── 01_params.R
@@ -186,15 +182,6 @@ All analyses were performed using R-based scripts designed for reproducibility a
 
 ---
 
-## Abstract
-High-Grade Serous ovarian cancer (HGSC) remains one of the most lethal gynecological malignancies, with limited robust prognostic biomarkers available for clinical application. In this project, we developed a reproducible machine learning framework for cross‑cohort transcriptomic analysis of HGSC.
-Publicly available GEO datasets were curated, pre‑processed, and harmonized using standardized normalization and batch‑aware preprocessing procedures. Differential expression analysis was performed using limma, followed by meta‑analytic consensus filtering across datasets.
-Feature selection pipelines combining univariate filtering, penalized regression, and stability‑based ranking were applied to identify robust candidate genes. Multiple machine learning models—including Elastic Net, Random Forest, Gradient Boosting, and XGBoost—were trained and evaluated using a strict Leave‑One‑Dataset‑Out (LODO) validation framework.
-Model performance was evaluated using ROC‑based metrics and cross‑cohort predictive consistency. Candidate biomarkers were further contextualized through immune module scoring to investigate associations between ML prediction probability and tumor microenvironment activity.
-This framework emphasizes methodological transparency, reproducibility, and cross‑cohort robustness, providing a generalizable strategy for transcriptomic biomarker discovery in cancer research.n.
-
----
-
 ## Author
 
 Dr Roozbeh Heidarzadehpilehrood  
@@ -219,11 +206,12 @@ Repository DOI
 
 ## 📝 License
 
-This project is licensed under:
 
-**Creative Commons CC BY‑NC 4.0**
+This project is licensed under the **MIT License**.
 
-You may share and adapt the material for **non‑commercial use** with proper attribution.
+Copyright (c) 2026 Roozbeh Heidarzadehpilehrood
+
+See the [LICENSE](LICENSE) file for the full license text.
 
 
 ---
