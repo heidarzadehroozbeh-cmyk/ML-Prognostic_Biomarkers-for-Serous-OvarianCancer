@@ -332,9 +332,7 @@ If you use this pipeline please cite:
 
 Heidarzadehpilehrood R et al. (2026)
 
-Machine learning‑driven transcriptomic biomarker discovery in HGSC.
-
-Repository DOI will be updated after Zenodo release.
+Repository DOI: https://doi.org/10.5281/zenodo.20262520
 
 ---
 
