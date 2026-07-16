@@ -90,33 +90,33 @@ The integrative analysis pipeline follows the workflow below:
 # 🔁 Workflow Diagram
 
 GEO datasets  
-     │  
-     ▼  
+           │  
+           ▼  
 Data preprocessing  
-     │  
-     ▼  
+           │  
+           ▼  
 Differential expression analysis (limma)  
-     │  
-     ▼  
+           │  
+           ▼  
 Cross‑cohort consensus DEG identification  
-     │  
-     ▼  
+           │  
+           ▼  
 Machine Learning Models  
 ElasticNet | Random Forest | XGBoost | GBM  
-     │  
-     ▼  
+           │  
+           ▼  
 Strict LODO validation  
-     │  
-     ▼  
+           │  
+           ▼  
 Feature importance ranking  
-     │  
-     ▼  
+           │  
+           ▼  
 Candidate biomarker discovery  
-     │  
-     ▼  
+           │  
+           ▼  
 Tumor Microenvironment analysis  
-     │  
-     ▼  
+           │  
+           ▼  
 Survival‑linked biomarker prioritization  
 
 ---
