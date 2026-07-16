@@ -332,7 +332,7 @@ If you use this pipeline please cite:
 
 Heidarzadehpilehrood R et al. (2026)
 
-Repository DOI: https://doi.org/10.5281/zenodo.20262520
+Repository DOI: https://doi.org/10.3390/ijms27146263
 
 ---
 
